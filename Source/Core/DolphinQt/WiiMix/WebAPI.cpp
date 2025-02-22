@@ -14,8 +14,8 @@ size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
   return size * nmemb;
 }
 
-std::map<uint16_t, std::string> WiiMixWebAPI::getGameAchievements(uint16_t game_id) {
-  std::map<uint16_t, std::string> achievements;
+std::map<int, std::string> WiiMixWebAPI::getGameAchievements(int game_id) {
+  std::map<int, std::string> achievements;
   CURL* curl;
   CURLcode res;
   std::string readBuffer;
@@ -45,8 +45,8 @@ std::map<uint16_t, std::string> WiiMixWebAPI::getGameAchievements(uint16_t game_
   return achievements;
 }
 
-std::map<std::string, uint16_t> WiiMixWebAPI::getGameList(uint16_t console_id) {
-  std::map<std::string, uint16_t> game_list;
+std::map<std::string, int> WiiMixWebAPI::getGameList(int console_id) {
+  std::map<std::string, int> game_list;
   CURL* curl;
   CURLcode res;
   std::string readBuffer;
@@ -75,8 +75,8 @@ std::map<std::string, uint16_t> WiiMixWebAPI::getGameList(uint16_t console_id) {
   return game_list;
 }
 
-uint16_t WiiMixWebAPI::getGameID(uint32_t achievement_id) {
-  uint16_t game_id = 0;
+int WiiMixWebAPI::getGameID(int achievement_id) {
+  int game_id = 0;
   CURL* curl = curl_easy_init();
   CURLcode res;
   std::string readBuffer;
